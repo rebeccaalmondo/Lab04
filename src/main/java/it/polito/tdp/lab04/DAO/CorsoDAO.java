@@ -17,7 +17,8 @@ public class CorsoDAO {
 	 */
 	public List<Corso> getTuttiICorsi() {
 
-		final String sql = "SELECT * FROM corso";
+		final String sql = "SELECT c.codins "
+							+ "FROM corso c";
 
 		List<Corso> corsi = new LinkedList<Corso>();
 
@@ -36,8 +37,8 @@ public class CorsoDAO {
 
 				System.out.println(codins + " " + numeroCrediti + " " + nome + " " + periodoDidattico);
 
-				// Crea un nuovo JAVA Bean Corso
-				// Aggiungi il nuovo oggetto Corso alla lista corsi
+				corsi.add(new Corso (codins, numeroCrediti, nome, periodoDidattico));
+				
 			}
 
 			conn.close();
